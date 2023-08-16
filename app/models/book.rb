@@ -6,6 +6,12 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   
+  validates :name,
+    length: { minimum: 2, maximum: 20 }
+  
+  validates :introduction,
+    length: { maximum: 50 }
+  
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
