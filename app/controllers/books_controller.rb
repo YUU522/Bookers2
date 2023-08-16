@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.all
+    # @user = current_user.id
   end
   
   def destroy

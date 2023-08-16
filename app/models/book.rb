@@ -19,4 +19,5 @@ class Book < ApplicationRecord
     end
     image
   end
+  
 end
