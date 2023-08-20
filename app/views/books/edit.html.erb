@@ -1,7 +1,20 @@
+
+
 <div class="container">
+  
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>Editing book</h2>
+      <% if @book.errors.any? %>
+        <div class="alert">
+          <h4><%= pluralize(@book.errors.count, "error") %>error prohibited this obj from being saved:</h4>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <h2>Editing Book</h2>
       <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
          <div class='form-group'>
           <label for="book_title">Title</label>

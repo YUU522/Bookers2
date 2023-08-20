@@ -16,36 +16,58 @@
     <header class="bg-dark ">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand " href="/"><%= link_to "Bookers", root_path, class: 'nav-link text-white' %></a>
+          
+            <a class="navbar-brand text-light" href="/"<span>Bookers</span></a>
+          
+          
+         
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-              <%= link_to user_path(current_user.id), class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-house-chimney"></i>Home
-              <% end %>
-              <%= link_to users_path, class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-users"></i>User
-              <% end %>
+              <% if user_signed_in? %>
+              <li>
+                <a class="nav-link text-light" href="<%= user_path(current_user) %>">
+                  <i class="fas fa-home" style="color: #ffffff;"></i>Home
+                </a>
+              </li>
+              
+              <li>
+                <a class="nav-link text-light" href="<%= users_path %>">
+                  <i class="fa-solid fa-users" style="color: #ffffff;"></i>Users
+                </a>
+              </li>
+
               <%= link_to books_path, class: 'nav-link text-white' do%>
                <i class="fa-solid fa-book-open"></i>Books
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-right-from-bracket"></i>Log out
+                <i class="fa-solid fa-sign-out-alt"></i>Log out
               <% end %>
             
             <% else %>
-              <%= link_to root_path, class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-house-chimney"></i>Home
-              <% end %>
-              <%= link_to about_path, class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-link" style="color: #ffffff;"></i>About
-              <% end %>
-              <%= link_to new_user_registration_path, class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-user-plus"></i></i>Sign up
-              <% end %>
-              <%= link_to new_user_session_path, class: 'nav-link text-white' do%>
-                <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i>Log in
-              <% end %>
+              <li>
+                <a class="nav-link text-light" href="<%= root_path %>">
+                  <i class="fas fa-home" style="color: #ffffff;"></i>Home
+                </a>
+              </li>
+              
+              <li>
+                <a class="nav-link text-light" href="<%= about_path %>">
+                  <i class="fa-solid fa-link" style="color: #ffffff;"></i>About
+                </a>
+              </li>
+              
+              <li>
+                <a class="nav-link text-light" href="<%= new_user_registration_path %>">
+                  <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>Sign up
+                </a>
+              </li>
+              
+              <li>
+                <a class="nav-link text-light" href="<%= new_user_session_path %>">
+                  <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>Log in
+                </a>
+              </li>
+           
             <% end %>
             </ul>
           </div>
@@ -53,6 +75,13 @@
       </nav>
     </header>
     <main>
+      <div>
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>">
+        <%= value %>
+    </div>
+  <% end %>
+      </div>
     <%= yield %>
     </main>
     <footer>

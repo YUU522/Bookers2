@@ -63,3 +63,15 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+      en:
+        devise:
+          registrations:
+             signed_up: 'Welcome! You have signed up successfully.'    
+      en:
+        devise:
+          sessions:
+            signed_out: 'Signed out successfully.'
+      en:
+        devise:
+          registrations:
+            updated: 'Your profile has been successfully updated.'

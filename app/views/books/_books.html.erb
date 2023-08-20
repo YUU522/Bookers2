@@ -37,7 +37,8 @@
     </table>
   <% end %>
   <div class="row">
-    <%= link_to edit_user_path(current_user.id), class: 'btn btn-outline-secondary btn-block' do %>
+    
+    <%= link_to edit_user_path(user.id), class: 'btn btn-outline-secondary btn-block' do %>
       <i class="fas fa-user-cog"></i> 
     <% end %>
   </div>
@@ -53,6 +54,6 @@
       <%= f.text_area :body, autofocus: true, id: "inputBody", class: 'form-control' %>
     </div>
     <!--<button class="btn btn-success" type="submit">Create Book</button>-->
-    <%= f.submit 'Create book', class: 'btn btn-success'%>
+    <%= f.submit 'Create Book', class: 'btn btn-success'%>
   <% end %>
 </div>
